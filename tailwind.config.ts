@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        heading: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        body: ['"Open Sans"', 'system-ui', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -56,6 +60,15 @@ export default {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
+        },
+        yoga: {
+          pink: "hsl(var(--yoga-pink))",
+          teal: "hsl(var(--yoga-teal))",
+          blue: "hsl(var(--yoga-blue))",
+          purple: "hsl(var(--yoga-purple))",
+          gold: "hsl(var(--yoga-gold))",
+          dark: "hsl(var(--yoga-dark))",
+          "light-gray": "hsl(var(--yoga-light-gray))",
         },
       },
       borderRadius: {

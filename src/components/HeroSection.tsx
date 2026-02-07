@@ -1,0 +1,112 @@
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import heroImage from "@/assets/hero-yoga-garden.jpg";
+
+const navItems = [
+  { label: "HOME", href: "#home" },
+  { label: "ABOUT", href: "#about" },
+  { label: "THE LIGHT OF YOGA STUDIO", href: "#studio" },
+  { label: "PRICING", href: "#pricing" },
+  { label: "VIDEOS", href: "#videos" },
+  { label: "POEMS", href: "#poems" },
+  { label: "BLOG", href: "#blog" },
+  { label: "CONTACTS", href: "#contacts" },
+];
+
+const HeroSection = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % 4);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + 4) % 4);
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 6000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section id="home" className="relative h-screen w-full overflow-hidden">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700"
+        style={{ backgroundImage: `url(${heroImage})` }}
+      />
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/20" />
+
+      {/* Top Bar */}
+      <div className="absolute top-0 left-0 right-0 z-20 px-6 py-3">
+        <div className="flex justify-between items-start">
+          <div className="text-white text-xs">
+            <p className="font-body">Business View</p>
+            <p className="font-body opacity-80">JUN 2017</p>
+          </div>
+          <span className="text-white text-xs font-body">Contact Details</span>
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <nav className="absolute top-10 left-0 right-0 z-20 flex justify-center pt-4">
+        <ul className="flex items-center gap-2 md:gap-6">
+          {navItems.map((item, index) => (
+            <li key={item.label} className="flex items-center">
+              <a
+                href={item.href}
+                className="yoga-nav-link hidden md:inline text-[10px] md:text-xs"
+              >
+                {item.label}
+              </a>
+              {index < navItems.length - 1 && (
+                <span className="hidden md:inline text-white mx-2 opacity-60">•</span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Hero Content */}
+      <div className="absolute inset-0 flex flex-col justify-center items-start z-10 px-8 md:px-20 lg:px-32">
+        <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-yoga-pink italic font-light mb-2 tracking-wide">
+          Inspiration
+        </h1>
+        <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl text-yoga-blue italic font-light mb-8 ml-12 md:ml-24">
+          for joyful living
+        </h2>
+        <p className="text-white font-heading text-xl md:text-2xl font-light mb-2 ml-4 md:ml-8">
+          Treatments to Relax Your
+        </p>
+        <p className="text-white font-heading text-xl md:text-2xl font-light mb-8 ml-4 md:ml-8">
+          Body & Soul
+        </p>
+        <button className="ml-4 md:ml-8 bg-yoga-pink text-white px-8 py-3 rounded-md hover:bg-yoga-pink/90 transition-all duration-300 font-body text-sm tracking-wider">
+          Contact Us
+        </button>
+      </div>
+
+      {/* Slider Controls */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4">
+        <button
+          onClick={prevSlide}
+          className="text-white hover:text-yoga-pink transition-colors"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+        <div className="flex items-center gap-2">
+          {[0, 1, 2, 3].map((index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                currentSlide === index ? "bg-white" : "border border-white"
+              }`}
+            />
+          ))}
+        </div>
+        <span className="text-white text-sm font-body">||</span>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
