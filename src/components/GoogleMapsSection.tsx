@@ -7,10 +7,15 @@ const GoogleMapsSection = () => {
         <h2 className="font-heading text-2xl md:text-3xl text-white font-light italic">
           See our Studio in 360° View on Google Maps
         </h2>
-        <button className="yoga-btn-outline flex items-center gap-2">
+        <a 
+          href="https://www.google.com.pk/search?q=The+Light+of+Yoga&ludocid=792013506096057818&lsig=AB86z5VILqtoosvSNthEYPR9VohH#lkt=LocalPoiPhotos"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="yoga-btn-outline flex items-center gap-2"
+        >
           <MapPin className="w-4 h-4" />
           VIEW IN GOOGLE MAPS
-        </button>
+        </a>
       </div>
     </section>
   );
