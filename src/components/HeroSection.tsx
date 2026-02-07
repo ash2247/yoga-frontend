@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import heroImage from "@/assets/hero-yoga-garden.jpg";
+import heroSlide1 from "@/assets/hero-slide-1.jpg";
+import heroSlide2 from "@/assets/hero-slide-2.jpg";
+import heroSlide3 from "@/assets/hero-slide-3.jpg";
+
+const heroImages = [heroSlide1, heroSlide2, heroSlide3];
 
 const navItems = [
   { label: "HOME", href: "#home" },
@@ -16,8 +20,8 @@ const navItems = [
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % 4);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + 4) % 4);
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
 
   useEffect(() => {
     const interval = setInterval(nextSlide, 6000);
@@ -28,8 +32,8 @@ const HeroSection = () => {
     <section id="home" className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700"
+        style={{ backgroundImage: `url(${heroImages[currentSlide]})` }}
       />
       
       {/* Overlay */}
@@ -93,7 +97,7 @@ const HeroSection = () => {
           <ChevronRight className="w-5 h-5" />
         </button>
         <div className="flex items-center gap-2">
-          {[0, 1, 2, 3].map((index) => (
+          {heroImages.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
