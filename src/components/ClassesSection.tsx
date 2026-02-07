@@ -2,7 +2,7 @@ import yogaClasses from "@/assets/yoga-classes.jpg";
 import hathaYoga from "@/assets/hatha-yoga.jpg";
 import ashtangaYoga from "@/assets/ashtanga-yoga.jpg";
 import yogaStretch from "@/assets/yoga-stretch.jpg";
-import gardenMeditation from "@/assets/garden-meditation.jpg";
+import meditationClass from "@/assets/meditation-class.jpg";
 import sunriseMeditation from "@/assets/sunrise-meditation.jpg";
 
 const classes = [
@@ -10,7 +10,7 @@ const classes = [
   { title: "Hatha Yoga", image: hathaYoga },
   { title: "Ashtanga Yoga", image: ashtangaYoga },
   { title: "Flexibility", image: yogaStretch },
-  { title: "Meditation", image: gardenMeditation },
+  { title: "Meditation", image: meditationClass },
   { title: "Sunrise Yoga", image: sunriseMeditation },
 ];
 
