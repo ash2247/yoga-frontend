@@ -4,7 +4,8 @@ import heroSlide1 from "@/assets/hero-slide-1.jpg";
 import heroSlide2 from "@/assets/hero-slide-2.jpg";
 import heroSlide3 from "@/assets/hero-slide-3.jpg";
 
-const heroImages = [heroSlide1, heroSlide2, heroSlide3];
+import { useContent } from "@/context/ContentContext";
+
 
 const navItems = [
   { label: "HOME", href: "#home" },
@@ -12,12 +13,14 @@ const navItems = [
   { label: "THE LIGHT OF YOGA STUDIO", href: "#studio" },
   { label: "PRICING", href: "#pricing" },
   { label: "VIDEOS", href: "#videos" },
-  { label: "POEMS", href: "#poems" },
   { label: "BLOG", href: "#blog" },
   { label: "CONTACTS", href: "#contacts" },
 ];
 
 const HeroSection = () => {
+  const content = useContent();
+  const heroImages = content?.hero?.slides || [heroSlide1, heroSlide2, heroSlide3];
+
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroImages.length);
@@ -35,7 +38,7 @@ const HeroSection = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700"
         style={{ backgroundImage: `url(${heroImages[currentSlide]})` }}
       />
-      
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/20" />
 
@@ -101,9 +104,8 @@ const HeroSection = () => {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                currentSlide === index ? "bg-white" : "border border-white"
-              }`}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === index ? "bg-white" : "border border-white"
+                }`}
             />
           ))}
         </div>

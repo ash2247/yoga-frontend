@@ -14,16 +14,21 @@ const classes = [
   { title: "Sunrise Yoga", image: sunriseMeditation },
 ];
 
+import { useContent } from "@/context/ContentContext";
+
 const ClassesSection = () => {
+  const content = useContent();
+  const classesData = content?.classes || classes;
+
   return (
     <section id="studio" className="py-20 bg-yoga-light-gray">
       <div className="container mx-auto px-8">
         <h2 className="yoga-section-title text-center mb-16 text-foreground">
           Our Classes
         </h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {classes.map((cls, index) => (
+          {classesData.map((cls, index) => (
             <div key={index} className="group cursor-pointer">
               <div className="overflow-hidden rounded-sm mb-4">
                 <img

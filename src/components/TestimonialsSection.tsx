@@ -35,20 +35,24 @@ const YogaSymbol = () => (
   </svg>
 );
 
+import { useContent } from "@/context/ContentContext";
+
 const TestimonialsSection = () => {
+  const content = useContent();
+  const testimonialData = content?.reviews || testimonials;
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextTestimonial = () =>
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentIndex((prev) => (prev + 1) % testimonialData.length);
   const prevTestimonial = () =>
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex((prev) => (prev - 1 + testimonialData.length) % testimonialData.length);
 
   useEffect(() => {
     const interval = setInterval(nextTestimonial, 8000);
     return () => clearInterval(interval);
   }, []);
 
-  const current = testimonials[currentIndex];
+  const current = testimonialData[currentIndex];
 
   return (
     <section className="yoga-gradient-pink py-20 relative">
@@ -63,13 +67,12 @@ const TestimonialsSection = () => {
 
         {/* Dots */}
         <div className="flex justify-center gap-2 mb-8">
-          {testimonials.map((_, index) => (
+          {testimonialData.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                currentIndex === index ? "bg-white" : "bg-white/40"
-              }`}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${currentIndex === index ? "bg-white" : "bg-white/40"
+                }`}
             />
           ))}
         </div>

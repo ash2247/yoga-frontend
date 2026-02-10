@@ -1,31 +1,11 @@
-const schedule = [
-  {
-    time: "7:00 am",
-    classes: [
-      { day: "Monday", has: false },
-      { day: "Tuesday", has: true, name: "Yoga Class", time: "7:00 am - 8:00 am" },
-      { day: "Wednesday", has: false },
-      { day: "Thursday", has: true, name: "Yoga Class", time: "7:00 am - 8:00 am" },
-      { day: "Friday", has: false },
-      { day: "Saturday", has: true, name: "Yoga Class", time: "7:00 am - 8:00 am" },
-    ],
-  },
-  {
-    time: "6:00 pm",
-    classes: [
-      { day: "Monday", has: true, name: "Yoga Class", time: "6:00 pm - 7:00 pm" },
-      { day: "Tuesday", has: false },
-      { day: "Wednesday", has: true, name: "Yoga Class", time: "6:00 pm - 7:00 pm" },
-      { day: "Thursday", has: false },
-      { day: "Friday", has: true, name: "Yoga Class", time: "6:00 pm - 7:00 pm" },
-      { day: "Saturday", has: false },
-    ],
-  },
-];
-
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
+import { useContent } from "@/context/ContentContext";
+
 const TimetableSection = () => {
+  const content = useContent();
+  const scheduleData = content?.timetable || [];
+
   return (
     <section id="pricing" className="py-20 bg-[hsl(200,30%,90%)]">
       <div className="container mx-auto px-8">
@@ -34,8 +14,15 @@ const TimetableSection = () => {
         </h2>
 
         <div className="max-w-5xl mx-auto">
-          {/* Table */}
-          <div className="overflow-x-auto border border-yoga-purple rounded-sm">
+          {scheduleData.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground text-lg">No classes scheduled at the moment.</p>
+              <p className="text-muted-foreground text-sm mt-2">Please check back later for updated timetable.</p>
+            </div>
+          ) : (
+            <>
+              {/* Table */}
+              <div className="overflow-x-auto border border-yoga-purple rounded-sm">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-yoga-purple">
@@ -51,7 +38,7 @@ const TimetableSection = () => {
                 </tr>
               </thead>
               <tbody>
-                {schedule.map((row, rowIndex) => (
+                {scheduleData.map((row, rowIndex) => (
                   <tr key={rowIndex} className="border-b border-yoga-purple last:border-b-0">
                     <td className="p-4 font-body text-sm text-muted-foreground">
                       {row.time}
@@ -59,9 +46,8 @@ const TimetableSection = () => {
                     {row.classes.map((cls, colIndex) => (
                       <td
                         key={colIndex}
-                        className={`p-4 text-center border-l border-yoga-purple ${
-                          cls.has ? "bg-yoga-purple" : ""
-                        }`}
+                        className={`p-4 text-center border-l border-yoga-purple ${cls.has ? "bg-yoga-purple" : ""
+                          }`}
                       >
                         {cls.has && (
                           <div className="text-white">
@@ -80,6 +66,8 @@ const TimetableSection = () => {
           <p className="text-center text-muted-foreground font-body text-sm mt-6">
             Group Sessions, Family Sessions and Private / One on One Sessions: (By appointment at mutually convenient time)
           </p>
+            </>
+          )}
         </div>
       </div>
     </section>

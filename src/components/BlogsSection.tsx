@@ -20,7 +20,12 @@ const blogs = [
   },
 ];
 
+import { useContent } from "@/context/ContentContext";
+
 const BlogsSection = () => {
+  const content = useContent();
+  const blogsData = content?.blogs || blogs;
+
   return (
     <section id="blog" className="py-20 bg-yoga-light-gray">
       <div className="container mx-auto px-8">
@@ -29,12 +34,11 @@ const BlogsSection = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {blogs.map((blog, index) => (
+          {blogsData.map((blog, index) => (
             <div
               key={index}
-              className={`bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-shadow ${
-                !blog.hasImage ? "border-l-4 border-yoga-teal p-6" : ""
-              }`}
+              className={`bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-shadow ${!blog.hasImage ? "border-l-4 border-yoga-teal p-6" : ""
+                }`}
             >
               {blog.hasImage && blog.image && (
                 <div className="aspect-video overflow-hidden">
@@ -60,7 +64,7 @@ const BlogsSection = () => {
                   {blog.excerpt}
                 </p>
                 <a
-                  href="#"
+                  href={`/blog/${blog.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
                   className="text-foreground font-body text-sm font-semibold tracking-wider hover:text-yoga-pink transition-colors"
                 >
                   READ MORE
