@@ -4,7 +4,7 @@ const footerLinks = [
   { label: "HOME", href: "#home" },
   { label: "ABOUT", href: "#about" },
   { label: "BLOG", href: "#blog" },
-  { label: "CONTACTS", href: "#contacts" },
+  { label: "CONTACTS", href: "/contact" },
 ];
 
 const Footer = () => {

@@ -5,7 +5,7 @@ const navItems = [
     { label: "PRICING", href: "/#pricing" },
     { label: "VIDEOS", href: "/#videos" },
     { label: "BLOG", href: "/#blog" },
-    { label: "CONTACTS", href: "/#contacts" },
+    { label: "CONTACTS", href: "/contact" },
 ];
 
 interface NavbarProps {
