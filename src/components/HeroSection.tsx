@@ -42,19 +42,8 @@ const HeroSection = () => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/20" />
 
-      {/* Top Bar */}
-      <div className="absolute top-0 left-0 right-0 z-20 px-6 py-3">
-        <div className="flex justify-between items-start">
-          <div className="text-white text-xs">
-            <p className="font-body">Business View</p>
-            <p className="font-body opacity-80">JUN 2017</p>
-          </div>
-          <span className="text-white text-xs font-body">Contact Details</span>
-        </div>
-      </div>
-
       {/* Navigation */}
-      <nav className="absolute top-10 left-0 right-0 z-20 flex justify-center pt-4">
+      <nav className="absolute top-0 left-0 right-0 z-20 flex justify-center pt-6">
         <ul className="flex items-center gap-2 md:gap-6">
           {navItems.map((item, index) => (
             <li key={item.label} className="flex items-center">
