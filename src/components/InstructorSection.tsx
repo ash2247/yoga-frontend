@@ -4,7 +4,8 @@ import instructorImage from "@/assets/instructor-raj.jpg";
 import { useContent } from "@/context/ContentContext";
 
 const InstructorSection = () => {
-  const content = useContent();
+  const contentContext = useContent();
+  const content = contentContext?.content;
   const about = content?.about || {
     name: "Raj",
     title: "Yoga Director",

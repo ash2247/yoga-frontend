@@ -1,7 +1,8 @@
 import { useContent } from "@/context/ContentContext";
 
 const VideoSection = () => {
-  const content = useContent();
+  const contentContext = useContent();
+  const content = contentContext?.content;
   const videoSrc = content?.video?.src || "https://www.youtube.com/embed/qNBgzB6plTs?start=15";
   const videoTitle = content?.video?.title || "The Light of Yoga featured on Morning Sunrise on Channel 7 with Kochie";
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useToast } from "@/components/ui/use-toast";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useToast } from "@/hooks/use-toast";
 
 interface SEOData {
     title: string;
@@ -29,7 +29,7 @@ const SEO = () => {
     const { toast } = useToast();
     const navigate = useNavigate();
 
-    const API_URL = "http://localhost:8000/backend/index.php";
+    const API_URL = "/api";
 
     useEffect(() => {
         const token = localStorage.getItem("adminToken");
@@ -71,14 +71,14 @@ const SEO = () => {
         if (e.target.files && e.target.files[0]) {
             const formData = new FormData();
             formData.append('file', e.target.files[0]);
-            
+
             try {
                 const response = await axios.post(`${API_URL}/upload`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
                 });
-                
+
                 if (response.data.success) {
                     setSeoData({ ...seoData, ogImage: response.data.url });
                     toast({ title: "Image uploaded successfully" });
@@ -110,26 +110,26 @@ const SEO = () => {
                     ))}
                 </nav>
                 <div className="p-4 border-t space-y-2">
-                    <a 
-                        href="/admin/settings" 
+                    <a
+                        href="/admin/settings"
                         className="w-full px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-md text-left block"
                     >
                         Settings
                     </a>
-                    <a 
-                        href="/admin/email" 
+                    <a
+                        href="/admin/email"
                         className="w-full px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-md text-left block"
                     >
                         Email
                     </a>
-                    <a 
-                        href="/admin/seo" 
+                    <a
+                        href="/admin/seo"
                         className="w-full px-4 py-2 bg-blue-50 text-blue-600 font-medium rounded-md text-left block"
                     >
                         SEO
                     </a>
-                    <a 
-                        href="/admin" 
+                    <a
+                        href="/admin"
                         className="w-full px-4 py-2 text-red-600 hover:bg-red-50 rounded-md text-left block"
                     >
                         Back to Dashboard
@@ -154,7 +154,7 @@ const SEO = () => {
                     {/* Basic SEO Settings */}
                     <div className="space-y-4">
                         <h3 className="font-medium text-lg">Basic SEO Settings</h3>
-                        
+
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-2">
                                 Page Title
@@ -222,7 +222,7 @@ const SEO = () => {
                     {/* Open Graph Settings */}
                     <div className="space-y-4 border-t pt-6">
                         <h3 className="font-medium text-lg">Open Graph Settings</h3>
-                        
+
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-2">
                                 OG Image
@@ -280,7 +280,7 @@ const SEO = () => {
                     {/* Twitter Card Settings */}
                     <div className="space-y-4 border-t pt-6">
                         <h3 className="font-medium text-lg">Twitter Card Settings</h3>
-                        
+
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-2">
                                 Twitter Card Type
@@ -301,7 +301,7 @@ const SEO = () => {
                     {/* Advanced Settings */}
                     <div className="space-y-4 border-t pt-6">
                         <h3 className="font-medium text-lg">Advanced Settings</h3>
-                        
+
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-2">
                                 Canonical URL
@@ -338,7 +338,7 @@ const SEO = () => {
                     {/* Preview Section */}
                     <div className="space-y-4 border-t pt-6">
                         <h3 className="font-medium text-lg">Search Engine Preview</h3>
-                        
+
                         <div className="border rounded-lg p-4 bg-gray-50">
                             <div className="space-y-2">
                                 <div className="text-blue-600 text-lg hover:underline cursor-pointer">

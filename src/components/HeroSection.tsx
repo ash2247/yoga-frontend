@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import heroSlide1 from "@/assets/hero-slide-1.jpg";
 import heroSlide2 from "@/assets/hero-slide-2.jpg";
 import heroSlide3 from "@/assets/hero-slide-3.jpg";
 
 import { useContent } from "@/context/ContentContext";
-
 
 const navItems = [
   { label: "HOME", href: "#home" },
@@ -18,7 +17,8 @@ const navItems = [
 ];
 
 const HeroSection = () => {
-  const content = useContent();
+  const contentContext = useContent();
+  const content = contentContext?.content;
   const heroImages = content?.hero?.slides || [heroSlide1, heroSlide2, heroSlide3];
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -29,7 +29,7 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(nextSlide, 6000);
     return () => clearInterval(interval);
-  }, []);
+  }, [heroImages.length]);
 
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden">
@@ -97,7 +97,7 @@ const HeroSection = () => {
           onClick={prevSlide}
           className="text-white hover:text-yoga-pink transition-colors"
         >
-          <ChevronRight className="w-5 h-5" />
+          <ChevronRight className="w-5 h-5 scale-x-[-1]" />
         </button>
         <div className="flex items-center gap-2">
           {heroImages.map((_, index) => (
@@ -109,7 +109,12 @@ const HeroSection = () => {
             />
           ))}
         </div>
-        <span className="text-white text-sm font-body">||</span>
+        <button
+          onClick={nextSlide}
+          className="text-white hover:text-yoga-pink transition-colors"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
       </div>
     </section>
   );

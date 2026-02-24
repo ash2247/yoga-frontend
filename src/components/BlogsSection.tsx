@@ -23,7 +23,8 @@ const blogs = [
 import { useContent } from "@/context/ContentContext";
 
 const BlogsSection = () => {
-  const content = useContent();
+  const contentContext = useContent();
+  const content = contentContext?.content;
   const blogsData = content?.blogs || blogs;
 
   return (

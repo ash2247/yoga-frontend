@@ -64,7 +64,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <p className="text-center text-white/50 font-body text-sm">
-          © 2023 The Light Of Yoga All right reserved.
+          © 2025 The Light Of Yoga All right reserved.
         </p>
       </div>
 

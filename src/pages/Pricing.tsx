@@ -28,7 +28,7 @@ const Pricing = () => {
 
     const fetchPricingPlans = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/backend/index.php/get-pricing');
+            const response = await axios.get('/api/get-pricing');
             setPricingPlans(response.data.pricing || []);
         } catch (error) {
             console.error('Error fetching pricing plans:', error);
@@ -96,9 +96,8 @@ const Pricing = () => {
                             return (
                                 <div
                                     key={index}
-                                    className={`relative bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 ${
-                                        plan.highlighted ? 'ring-4 ring-blue-500 ring-opacity-50' : ''
-                                    }`}
+                                    className={`relative bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 ${plan.highlighted ? 'ring-4 ring-blue-500 ring-opacity-50' : ''
+                                        }`}
                                 >
                                     {/* Badge */}
                                     {plan.badge && (
@@ -176,11 +175,10 @@ const Pricing = () => {
                                         {/* CTA Button */}
                                         <a
                                             href={plan.buttonLink}
-                                            className={`w-full block text-center py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
-                                                plan.highlighted
+                                            className={`w-full block text-center py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${plan.highlighted
                                                     ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700'
                                                     : 'bg-gray-900 text-white hover:bg-gray-800'
-                                            }`}
+                                                }`}
                                         >
                                             {plan.buttonText || 'Get Started'}
                                         </a>

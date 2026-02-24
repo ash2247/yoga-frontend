@@ -38,7 +38,8 @@ const YogaSymbol = () => (
 import { useContent } from "@/context/ContentContext";
 
 const TestimonialsSection = () => {
-  const content = useContent();
+  const contentContext = useContent();
+  const content = contentContext?.content;
   const testimonialData = content?.reviews || testimonials;
   const [currentIndex, setCurrentIndex] = useState(0);
 

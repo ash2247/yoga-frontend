@@ -17,7 +17,8 @@ const classes = [
 import { useContent } from "@/context/ContentContext";
 
 const ClassesSection = () => {
-  const content = useContent();
+  const contentContext = useContent();
+  const content = contentContext?.content;
   const classesData = content?.classes || classes;
 
   return (

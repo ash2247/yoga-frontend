@@ -1,4 +1,4 @@
-{
+export const staticContent = {
     "hero": {
         "slides": [
             "/images/hero-slide-1.jpg",
@@ -12,14 +12,31 @@
     },
     "classes": [
         {
-            "title": "Morning Yoga",
-            "image": "/backend/uploads/1770477641_profile-300x2091-11.jpg"
+            "title": "Yoga Classes",
+            "image": "/images/yoga-classes.jpg"
         },
         {
-            "title": "Evening Yoga",
-            "image": "/images/evening-yoga.jpg"
+            "title": "Hatha Yoga",
+            "image": "/images/hatha-yoga.jpg"
+        },
+        {
+            "title": "Ashtanga Yoga",
+            "image": "/images/ashtanga-yoga.jpg"
+        },
+        {
+            "title": "Flexibility",
+            "image": "/images/yoga-stretch.jpg"
+        },
+        {
+            "title": "Meditation",
+            "image": "/images/meditation-class.jpg"
+        },
+        {
+            "title": "Sunrise Yoga",
+            "image": "/images/sunrise-meditation.jpg"
         }
     ],
+
     "reviews": [
         {
             "text": "I've been going to Light of Yoga for over a year. With such a welcoming vibe you can relax as soon as you walk in & leave your worries at the door. SukhRaj is a great friend and a great teacher, i am grateful for his guidance during my yoga journey. With an outdoor setting we feel the breeze, the plants and see the stars, i love each session and highly recommend it to people of all levels.",
@@ -111,8 +128,8 @@
     ],
     "blogs": [
         {
-            "title": "SHEERSASANA \u2013 the king of all yoga postures",
-            "excerpt": "SHEERSASANA \u2013 HEADSTAND THE KING OF ALL YOGA POSTURES Harmonising with the force of gravity \u2013 upside down. Excellent posture...",
+            "title": "SHEERSASANA – the king of all yoga postures",
+            "excerpt": "SHEERSASANA – HEADSTAND THE KING OF ALL YOGA POSTURES Harmonising with the force of gravity – upside down. Excellent posture...",
             "hasImage": false
         },
         {
@@ -129,13 +146,10 @@
         }
     ],
     "about": {
-        "name": "Raj Kumar",
-        "title": "Senior Yoga Instructor",
-        "image": "/images/raj-new.jpg",
-        "bio": "Experienced yoga teacher with 15+ years of practice"
-    },
-    "test": {
-        "title": "Test Class",
-        "image": "test.jpg"
+        "name": "Raj",
+        "title": "Yoga Director",
+        "image": "/images/instructor-raj.jpg",
+
+        "bio": "Raj is an Honours Graduate in Psychology. He stood first in the entire University of Delhi, India and won a GOLD MEDAL for securing the first position in the University. He then did his Master’s in Business Management (M.B.A.) from The Faculty of Management Studied, University of Delhi, Delhi, India. Thereafter, SukhRaj has had a very successful high fly career of an Export Manager in Several Multi-National Companies of India, Indonesia and Australia. Life changed after being diagnosed with Diabetes and he put his life in the slows lane – health became his major passion."
     }
-}
+};

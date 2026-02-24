@@ -1,21 +1,7 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
-import { getContent } from "@/services/api";
+import { createContext, useContext, ReactNode } from "react";
+import { staticContent } from "@/data/staticContent";
 
-type Content = {
-    hero: { slides: string[] };
-    video: { title: string; src: string };
-    classes: any[];
-    reviews: any[];
-    timetable: any[];
-    blogs: any[];
-    about: {
-        content?: string;
-        name?: string;
-        title?: string;
-        image?: string;
-        bio?: string;
-    };
-};
+type Content = typeof staticContent;
 
 const ContentContext = createContext<{
     content: Content | null;
@@ -25,24 +11,15 @@ const ContentContext = createContext<{
 export const useContent = () => useContext(ContentContext);
 
 export const ContentProvider = ({ children }: { children: ReactNode }) => {
-    const [content, setContent] = useState<Content | null>(null);
-
     const refreshContent = async () => {
-        try {
-            const freshContent = await getContent();
-            setContent(freshContent);
-        } catch (error) {
-            console.error('Failed to refresh content:', error);
-        }
+        // No-op since we're using static content now
+        console.log("Static content is in use. Refresh is disabled.");
     };
 
-    useEffect(() => {
-        refreshContent();
-    }, []);
-
     return (
-        <ContentContext.Provider value={{ content, refreshContent }}>
+        <ContentContext.Provider value={{ content: staticContent, refreshContent }}>
             {children}
         </ContentContext.Provider>
     );
 };
+

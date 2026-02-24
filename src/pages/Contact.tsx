@@ -14,43 +14,14 @@ const Contact = () => {
         e.preventDefault();
         setLoading(true);
 
-        try {
-            // Send email to the backend email system
-            const response = await fetch('http://localhost:8000/backend/email-system.php/send', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    to: 'info@yogastudio.com', // Default studio email
-                    subject: `Contact Form: ${formData.subject}`,
-                    message: `
-                        <h3>New Contact Form Submission</h3>
-                        <p><strong>Name:</strong> ${formData.name}</p>
-                        <p><strong>Email:</strong> ${formData.email}</p>
-                        <p><strong>Subject:</strong> ${formData.subject}</p>
-                        <p><strong>Message:</strong></p>
-                        <p>${formData.message}</p>
-                        <hr>
-                        <p><em>This message was sent from the contact form on your website.</em></p>
-                    `
-                })
-            });
-
-            const result = await response.json();
-            
-            if (result.success) {
-                setSubmitted(true);
-                setFormData({ name: '', email: '', subject: '', message: '' });
-            } else {
-                alert('Failed to send message. Please try again.');
-            }
-        } catch (error) {
-            alert('Error sending message. Please try again.');
-        } finally {
+        // Simulate API call
+        setTimeout(() => {
+            setSubmitted(true);
+            setFormData({ name: '', email: '', subject: '', message: '' });
             setLoading(false);
-        }
+        }, 1500);
     };
+
 
     if (submitted) {
         return (
