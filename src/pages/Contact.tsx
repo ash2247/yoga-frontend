@@ -6,10 +6,10 @@ import Navbar from "@/components/Navbar";
 
 // ─── EmailJS Config ───────────────────────────────────────────
 // Sign up free at https://www.emailjs.com
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";            // e.g. "service_abc123"
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";           // Admin notification template
-const EMAILJS_AUTOREPLY_ID = "YOUR_AUTOREPLY_TEMPLATE_ID"; // Auto-reply to user
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";            // Account > General > Public Key
+const EMAILJS_SERVICE_ID = "service_ays9mad";            // ✅ Set
+const EMAILJS_TEMPLATE_ID = "template_hdiioo6";         // ✅ Set
+const EMAILJS_AUTOREPLY_ID = "template_hdiioo6";         // ✅ Set
+const EMAILJS_PUBLIC_KEY = "uXqmCzko--gZF-8PH";         // ✅ Set
 // ──────────────────────────────────────────────────────────────
 
 
