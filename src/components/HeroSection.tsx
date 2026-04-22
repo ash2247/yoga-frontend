@@ -5,6 +5,7 @@ import heroSlide2 from "@/assets/hero-slide-2.jpg";
 import heroSlide3 from "@/assets/hero-slide-3.jpg";
 
 import { useContent } from "@/context/ContentContext";
+import ContactInfo from "@/components/ContactInfo";
 
 const navItems = [
   { label: "HOME", href: "#home" },
@@ -12,7 +13,7 @@ const navItems = [
   { label: "THE LIGHT OF YOGA STUDIO", href: "#studio" },
   { label: "PRICING", href: "#pricing" },
   { label: "VIDEOS", href: "#videos" },
-  { label: "BLOG", href: "#blog" },
+  { label: "CLASSES TIMETABLE", href: "#timetable" },
   { label: "CONTACTS", href: "/contact" },
 ];
 
@@ -63,21 +64,29 @@ const HeroSection = () => {
 
       {/* Hero Content */}
       <div className="absolute inset-0 flex flex-col justify-center items-start z-10 px-8 md:px-20 lg:px-32">
-        <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-yoga-pink italic font-light mb-2 tracking-wide">
-          Inspiration
-        </h1>
-        <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl text-yoga-blue italic font-light mb-8 ml-12 md:ml-24">
-          for joyful living
-        </h2>
-        <p className="text-white font-heading text-xl md:text-2xl font-light mb-2 ml-4 md:ml-8">
-          Treatments to Relax Your
-        </p>
-        <p className="text-white font-heading text-xl md:text-2xl font-light mb-8 ml-4 md:ml-8">
-          Body & Soul
-        </p>
-        <button className="ml-4 md:ml-8 bg-yoga-pink text-white px-8 py-3 rounded-md hover:bg-yoga-pink/90 transition-all duration-300 font-body text-sm tracking-wider">
-          Contact Us
-        </button>
+        <div className="flex flex-col lg:flex-row gap-8 items-start">
+          <div className="flex-1">
+            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-yoga-pink italic font-light mb-2 tracking-wide">
+              Inspiration
+            </h1>
+            <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl text-yoga-blue italic font-light mb-8 ml-12 md:ml-24">
+              for joyful living
+            </h2>
+            <p className="text-white font-heading text-xl md:text-2xl font-light mb-2 ml-4 md:ml-8">
+              Treatments to Relax Your
+            </p>
+            <p className="text-white font-heading text-xl md:text-2xl font-light mb-8 ml-4 md:ml-8">
+              Body & Soul
+            </p>
+            <button className="ml-4 md:ml-8 bg-yoga-pink text-white px-8 py-3 rounded-md hover:bg-yoga-pink/90 transition-all duration-300 font-body text-sm tracking-wider">
+              Contact Us
+            </button>
+          </div>
+          
+          <div className="mt-8 lg:mt-0">
+            <ContactInfo />
+          </div>
+        </div>
       </div>
 
       {/* Slider Controls */}

@@ -11,7 +11,7 @@ const TimetableSection = () => {
     : staticContent.timetable;
 
   return (
-    <section id="pricing" className="py-20 bg-[hsl(200,30%,90%)]">
+    <section id="timetable" className="py-20 bg-[hsl(200,30%,90%)]">
       <div className="container mx-auto px-8">
         <h2 className="yoga-section-title text-center mb-16 italic text-foreground">
           Classes Timetable
@@ -67,9 +67,27 @@ const TimetableSection = () => {
                 </table>
               </div>
 
-              <p className="text-center text-muted-foreground font-body text-sm mt-6">
-                Group Sessions, Family Sessions and Private / One on One Sessions: (By appointment at mutually convenient time)
-              </p>
+              <div className="mt-8 space-y-4 text-center">
+                <p className="text-muted-foreground font-body text-sm">
+                  Private / One-on-One / Group Sessions / Family Sessions: at mutually convenient timing
+                </p>
+
+                <p className="font-body font-semibold text-foreground tracking-wide">
+                  PRIOR BOOKING ESSENTIAL
+                </p>
+
+                <div className="pt-2 font-body text-sm text-muted-foreground space-y-1">
+                  <p>Please Call / SMS / WhatsApp <strong>Raj</strong> at:</p>
+                  <p className="text-lg font-semibold text-foreground">
+                    <a href="tel:0418409140" className="hover:text-yoga-pink transition-colors">0418 409 140</a>
+                  </p>
+                  <p>OR</p>
+                  <p>
+                    Email:{" "}
+                    <a href="mailto:sukhrajd@gmail.com" className="text-yoga-pink hover:underline">sukhrajd@gmail.com</a>
+                  </p>
+                </div>
+              </div>
             </>
           )}
         </div>

@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import ContactUs from "./pages/ContactUs";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
+import Pricing from "./pages/Pricing";
 import { ContentProvider } from "./context/ContentContext";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/pricing" element={<Pricing />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
