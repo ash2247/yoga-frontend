@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 // Sign up free at https://www.emailjs.com
 const EMAILJS_SERVICE_ID = "service_ays9mad";            // ✅ Set
 const EMAILJS_TEMPLATE_ID = "template_hdiioo6";         // ✅ Yoga template ID
-const EMAILJS_AUTOREPLY_ID = "template_hdiioo6";         // ✅ Using same template (update with separate auto-reply template ID when available)
+const EMAILJS_AUTOREPLY_ID = "template_ys6b8em";         // ✅ User auto-reply confirmation template
 const EMAILJS_PUBLIC_KEY = "uXqmCzko--gZF-8PH";         // ✅ Set
 // ──────────────────────────────────────────────────────────────
 
@@ -68,8 +68,19 @@ const Contact = () => {
                 EMAILJS_PUBLIC_KEY
             );
 
-            // Auto-reply removed to prevent duplicate emails
-            // If you want to send a confirmation to users later, create a separate template
+            // 2️⃣ Auto-reply confirmation to the user
+            await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_AUTOREPLY_ID,
+                {
+                    to_name: formData.name,
+                    to_email: formData.email,
+                    from_name: "The Light Of Yoga",
+                    subject: "Thank you for your enquiry",
+                    message: "We have received your message and will get back to you within 24 hours."
+                },
+                EMAILJS_PUBLIC_KEY
+            );
 
             toast({
                 title: "Message Sent! 🙏",
